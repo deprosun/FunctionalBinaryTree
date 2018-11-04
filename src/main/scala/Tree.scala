@@ -157,8 +157,6 @@ object Tree {
 
         case datanode: DataTree[_] =>
           datanode.copy(right = del(datanode.right, toBeDeleted))
-
-        case _ => throw new Error(s"Found a missing case where root value = $root")
       }
     }
 

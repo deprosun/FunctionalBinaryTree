@@ -323,6 +323,82 @@ class TreeTest extends FlatSpec {
     assert(minimum(root) == expected)
   }
 
+  behavior of "maximum"
+
+  it should "return the root if the root of the tree has no right child" in {
+    val root = DataTree(data = 5,
+      left = DataTree(
+        data = 4,
+        left = EmptyTree,
+        right = DataTree(
+          data = 7,
+          left = EmptyTree,
+          right = EmptyTree)
+      ),
+      right = EmptyTree
+    )
+
+    assert(maximum(root) == root)
+  }
+
+  it should "return the root if the root itself is empty" in {
+    val root = EmptyTree
+    assert(maximum(root) == root)
+  }
+
+  it should "return the 11" in {
+    val root = DataTree(data = 5,
+      left = DataTree(data = 4,
+        left = EmptyTree,
+        right = EmptyTree
+      ),
+      right = DataTree(data = 7,
+        left = EmptyTree,
+        right = DataTree(data = 11,
+          left = EmptyTree,
+          right = EmptyTree)
+      )
+    )
+
+    val expected = DataTree(data = 11,
+      left = EmptyTree,
+      right = EmptyTree
+    )
+
+    assert(maximum(root) == expected)
+  }
+
+  it should "return the 15" in {
+    val root = DataTree(
+      data = 5,
+      left = DataTree(
+        data = 4,
+        left = DataTree(
+          data = 3,
+          left = EmptyTree,
+          right = EmptyTree
+        ),
+        right = EmptyTree
+      ),
+      right = DataTree(
+        data = 7,
+        left = EmptyTree,
+        right = DataTree(
+          data = 15,
+          left = EmptyTree,
+          right = EmptyTree)
+      )
+    )
+
+    val expected = DataTree(
+      data = 15,
+      left = EmptyTree,
+      right = EmptyTree
+    )
+
+    assert(maximum(root) == expected)
+  }
+
   behavior of "print"
 
   it should "print correctly" in {
