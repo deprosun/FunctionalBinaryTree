@@ -1,3 +1,5 @@
+package com.deprosun.datastructure.bst
+
 import org.scalatest.FlatSpec
 
 import scala.language.postfixOps

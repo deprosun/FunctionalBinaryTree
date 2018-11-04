@@ -1,3 +1,5 @@
+package com.deprosun.datastructure.bst
+
 
 
 object Tree {
